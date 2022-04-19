@@ -1,0 +1,144 @@
+
+body {
+  background-image: url('./jquerypair/background.jpg');
+
+}
+
+#draggable {
+  /* Dog */
+  padding: 0.5em; 
+  float: bottom; 
+  margin: 10px 10px 10px 0; 
+
+  position: absolute;
+  bottom: 10; 
+  left: 50%;
+}
+
+#droppable {
+  /* Food */
+  padding: 0.5em; 
+  
+  position: fixed;
+  margin: 0 auto;
+}
+
+.hole {
+  height: 100px;
+  width: 200px;
+  background-color: rgb(0, 0, 0);
+  border-radius: 50%;
+  position:  fixed;
+}
+
+/* VANESSA'S CODE */
+/*SETTINGS FOR WELCOME + GAME OVER POPUP BANNERS*/
+.modal-container {  /* start game popup*/
+    /* display: none;*/
+    background-color: rgba(0, 0, 0, 0.2);
+    position:fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    height: 100vh;
+    width: 100vw;
+    
+}
+
+.modal-container2 {   /* game over popup*/
+    /* display: none;*/
+    position:fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.modal-container3 {  /* you win popup*/
+    /* display: none;*/
+    background-color: rgba(0, 0, 0, 0.2);
+    position:fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+button {
+    background-color: bisque;
+    font-family: 'Gorditas', cursive;
+    border: 20px;
+    border-radius: 100px;
+    font-size: 20px;
+    color: pink;
+    padding: 10px 50px;
+}
+
+
+.gameOver {
+    background-color: #39D3AA;
+}
+
+
+
+.show {   
+    pointer-events: auto;
+    opacity: 1;
+}
+.remove {
+    pointer-events: none;
+    opacity: 0;
+
+}
+
+.modal { /* settings for banner in general */
+    background-color: #39D3AA;
+    font-family: 'Gorditas', cursive;
+    max-width: 100%;
+    border-radius: 15px;
+    height: 50%;
+    width: 40%;
+    text-align: center;
+    
+}
+
+.modal h1{ /* settings for title text inside popup banner */
+    padding-top: 20%;
+    text-align: center;
+    font-size: 35px;
+}
+
+.modal p{ /* settings for title text inside popup banner */
+    text-align: center;
+    font-size: 15px;
+}
+
+/*SETTINGS FOR TIMER + SCORE BANNERS*/
+.timer {
+    color: rgb(255, 28, 229);
+    font-size: 40px;
+}
+
+.timer-modal {
+    background-color: rgb(138, 255, 245);
+    text-align: center;
+    max-width: 100%;
+    border-radius: 15px;
+    padding-left: 0px;
+    padding-top: 10px;
+    opacity: 1;
+    height: 90%;
+    width: 300px;
+    align-items: left;
+    margin-block-start: 10px;
+    padding-bottom: 20px;
+    margin-top: 550px;
+    margin-right: 350px;
+}
+

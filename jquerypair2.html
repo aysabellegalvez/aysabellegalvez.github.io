@@ -1,0 +1,199 @@
+
+<html>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="jquerypairstyle.css">
+
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+     <!--
+      <style>
+          @import url('https://fonts.googleapis.com/css2?family=Gorditas:wght@700&display=swap');
+      </style>        
+     --> 
+      <style>
+          @import url('https://fonts.googleapis.com/css2?family=Gorditas&display=swap');
+      </style>
+      
+      <link rel="stylesheet" href="style.css">
+  
+  </head>
+  <body id="bg">
+      <div class="modal-container3" id="win-container">  <!-- GAME OVER BUTTON-->
+          <div class="modal">
+          <h1> Great Job!</h1>
+          <p> The puppy finished all its activities. You did great!!</p>
+          <button id="restartButton">
+              Restart
+          </button>
+          </div>
+      </div>
+    <div class="modal-container" id="start-container">  <!-- START BUTTON-->
+        <div class="modal">
+            <h1> Welcome!</h1>
+            <p> </p>
+            <button id="startButton">
+                Start game
+            </button>
+        </div>
+    </div>
+      <div   > 
+      
+          <!--<div style="background-color: red;" class="stopWatch">1000</div> <p id="demo"></p>-->
+          
+          <div class="timer-modal" id="time-container">   <!-- TIME-->
+              <h1> Time:</h1>
+              <div id="time" class="timer">                  
+              10
+              </div>
+      
+          </div>   
+              
+      </div> 
+
+      <div class="score-modal" id="score-container"> <!-- SCORE-->
+         
+          <div id="score" class="timer">
+              Drag the puppy to all the holes to find where his bone is.
+          </div> 
+         
+          
+      </div>
+      
+      <div class="modal-container2" id="reset-container">  <!-- GAME OVER BUTTON-->
+          <div class="modal">
+          <h1> Game Over</h1>
+          <p> Time is up! Better luck next time.</p>
+          <button id="resetButton">
+              Try again
+          </button>
+          </div>
+      </div> 
+
+
+  <script>
+
+  function startTimer(duration, display) { //TIMER SETTINGS 
+      var timer = duration, seconds;
+      timeInterval = setInterval(function () {
+          seconds = parseInt(timer % 60, 10);
+          seconds = seconds < 10 ? "0" + seconds : seconds;
+          console.log(seconds);
+
+          display.textContent = seconds;
+          
+          if (--timer < 0) {
+          if (timer < 0) { 
+             
+              
+              clearInterval(timeInterval) 
+          }
+          if (seconds == "00") { //IF TIMER GOES TO 00:00:
+              clearInterval(timeInterval) 
+              gameOver();
+
+          }
+      }
+      }, 1000);
+  }
+
+  
+const startContainer = document.getElementById('start-container');
+const startButton = document.getElementById('.startButton');
+
+const resetContainer = document.getElementById('reset-container');
+const resetButton = document.getElementById('.resetButton');
+
+const winContainer = document.getElementById('win-container');
+const restartButton = document.getElementById('.restartButton');
+
+const timeContainer = document.getElementById('time-container');
+const background = document.getElementById('bg');
+var halfMinute = 9;
+
+window.onload = function () { // this is the main function that calls the chain of functions
+    startGame();
+    console.log("aha");
+    //  --> change here if the seconds of the timer
+   
+    document.querySelector('#bg').classList.add('body');
+
+    
+};
+
+function startGame(){ // start/welcome page with the popup banner
+    timeContainer.classList.add('remove')
+    winContainer.classList.add('remove');
+    resetContainer.classList.add('remove');
+    startContainer.classList.add('show');
+    
+   startContainer.addEventListener("click", ()=>{ // IF START BUTTON IS CLICKED:
+    startContainer.classList.add('remove'); //WELCOME POPUP BANNER IS REMOVED
+    console.log("hall0000o");
+        //timer = duration; //TIMER STARTS
+        //startTimer(halfMinute, display);
+        
+        display = document.querySelector('#time');
+        startContainer.addEventListener("click", ()=>{ 
+            console.log("fyckk");
+        })
+        //scoreCount();
+        startTimer(halfMinute, display);
+        //you'll prolly want to insert your code somewhere *** HERE **
+
+        window.location.href = 'file:///C:/Users/Amelie/Desktop/webDev/aysabellegalvez.github.io/jquerypair.html'; // go to game link
+
+       
+    });
+}
+function youWin(){
+    timeContainer.classList.remove('show');
+    winContainer.classList.remove('remove');
+    winContainer.classList.add('show');
+    //document.querySelector('#bg').classList.add('youWin');
+    winContainer.addEventListener("click", ()=>{
+       // document.querySelector('#bg').classList.remove('youWin');
+       window.onload();
+       
+        display = document.querySelector('#time');
+        if (display === "00") {
+            display === "10"
+        }
+        startTimer(halfMinute, display);
+        //scoreCount(); //enable this when you want to restart code after doing your own settings to it
+        
+       
+    
+    });
+}
+
+function gameOver(){
+    timeContainer.classList.remove('show');
+    timeContainer.classList.add('remove');
+    document.querySelector('#bg').classList.add('gameOver');
+    resetContainer.classList.remove('remove');
+    resetContainer.classList.add('show');
+    resetContainer.addEventListener("click", ()=>{
+        document.querySelector('#bg').classList.remove('gameOver');
+       window.onload();
+       //var halfMinute = 5,
+        display = document.querySelector('#time');
+        if (display === "00") {
+            display === "10"
+        }
+        startTimer(halfMinute, display);
+        scoreCount();
+        
+       
+    
+    });
+}
+
+  </script>
+
+ 
+
+</html> 

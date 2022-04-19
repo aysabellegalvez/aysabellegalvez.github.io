@@ -1,0 +1,116 @@
+<html>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="jquerypairstyle.css">
+
+	<body>
+
+  		<script src="https://code.jquery.com/jquery-3.6.0.js"></script> 
+  		<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+  		<script>
+
+  		// D R A G  &  D R O P  C O D E 
+		  $( function() {
+		  	document.getElementById("droppable").style.visibility = "hidden";
+		  	// source to show/hide elements: https://stackoverflow.com/questions/6242976/javascript-hide-show-element 
+		    $( "#draggable" ).draggable();
+
+		    $( "#droppable" ).droppable({
+		      drop: function( event, ui ) {
+		        $( this ) // What will happen when the item is dropped to the other item 
+		          .addClass( "ui-state-highlight" )
+		          .find( "p" )
+		          document.getElementById("droppable").style.visibility = "visible";
+
+	          	timeContainer.classList.remove('show');
+			    document.querySelector('#bg').classList.add('gameOver');
+			    resetContainer.classList.add('show');
+			    resetContainer.addEventListener("click", ()=>{
+			        document.querySelector('#bg').classList.remove('gameOver');
+			       window.onload();
+			       //var halfMinute = 5,
+			        display = document.querySelector('#time');
+			        if (display === "00") {
+			            display === "10"
+			        }
+			        startTimer(halfMinute, display);
+			        
+			    });
+
+		      }
+		    });
+		  } );
+
+		function startTimer(duration, display) { //TIMER SETTINGS 
+	      var timer = duration, seconds;
+	      timeInterval = setInterval(function () {
+	          seconds = parseInt(timer % 60, 10);
+	          seconds = seconds < 10 ? "0" + seconds : seconds;
+	          console.log(seconds);
+
+	          display.textContent = seconds;
+	          
+	          if (--timer < 0) {
+	          if (timer < 0) { 
+	             
+	              
+	              clearInterval(timeInterval) 
+	          }
+	          if (seconds == "00") { //IF TIMER GOES TO 00:00:
+	              clearInterval(timeInterval) 
+	              gameOver();
+
+	          }
+	      }
+	      }, 1000);
+	  }
+
+		// Choose random position 
+		const randposition = [[30, 60], [1100, 400], [1300, 200], [200, 700], [1000, 100], [250, 250], [600, 30], [500, 600], [500, 250], [750, 450], [0, 500], [1200, 700]];
+		const random = Math.floor(Math.random() * randposition.length); // randposition[random][0/1] is the position 
+		let dogfood_x = randposition[random][0]; 
+		let dogfood_y = randposition[random][1]; 
+	    
+	    // update top and left position
+	    droppable.style.left = dogfood_x +"px";
+	    droppable.style.top = dogfood_y +"px";
+
+	    document.getElementById('droppable').style.left = dogfood_x;
+	    document.getElementById('droppable').style.top = dogfood_y;
+
+		</script>
+
+		<div class="modal-container3" id="win-container">  <!-- GAME OVER BUTTON-->
+          <div class="modal">
+          <h1> Great Job!</h1>
+          <p> The puppy finished all its activities. You did great!!</p>
+          <button id="restartButton">
+              Restart
+          </button>
+          </div>
+      </div>
+
+		<!-- PROGRAM THE BONE TO FIT RANDOMLY IN HOLE --> 
+
+ 		<!-- C R E A T E    H O L E S --> 
+ 		<span class="hole" style="top: 60px; left: 30px;"></span>
+ 		<span class="hole" style="top: 400px; left: 1100px;"></span>
+ 		<span class="hole" style="top: 200px; left: 1300px;"></span>
+ 		<span class="hole" style="top: 700px; left: 200px;"></span>
+ 		<span class="hole" style="top: 100px; left: 1000px;"></span>
+ 		<span class="hole" style="top: 250px; left: 250px;"></span>
+ 		<span class="hole" style="top: 30px; left: 600px;"></span>
+ 		<span class="hole" style="top: 600px; left: 500px;"></span>
+ 		<span class="hole" style="top: 250px; left: 500px;"></span>
+ 		<span class="hole" style="top: 450px; left: 750px;"></span>
+ 		<span class="hole" style="top: 500px; left: 0px;"></span>
+ 		<span class="hole" style="top: 700px; left: 1200px;"></span>
+
+ 		<!-- C R E A T E   B O N E --> 
+		<div id="droppable" class="ui-widget-content" style="content:url(./jquerypair/dogfood.jpg); height: 100px; left: 200px; top: 700px"> </div>
+ 		<!-- C R E A T E   D O G --> 
+ 		<div id="draggable" class="ui-widget-header" style="content:url(./jquerypair/feedmedog.png); height: 250px; top: 60px; left: 1000px;"> </div> 
+
+	</body>
+
+</html> 
