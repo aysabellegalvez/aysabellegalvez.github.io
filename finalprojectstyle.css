@@ -1,0 +1,196 @@
+html {
+	/* CUSTOM CURSOR */ 
+	cursor: url("./finalproject/cursor2.gif"), auto;
+	/* source: https://www.codegrepper.com/code-examples/css/how+to+change+the+cursor+to+an+image+in+html
+	and https://stackoverflow.com/questions/8238069/how-to-make-cursor-unchanged-in-margin-area-of-css */
+}
+
+head {
+	background-image: url('https://monophy.com/media/zW0n7AIWG4ka4/monophy.gif');
+	grid-area: header;
+
+}
+
+.headgrid {
+	display: grid;
+	text-align: center;
+	margin-bottom: 100px;
+}
+
+h1 {
+	color: white;
+	font-size: 130px;
+	font-family: "Updock", cursive;
+	margin-top: -100px;
+}
+
+h2 {
+	color: white;
+	font-size: 20px;
+	font-family: 'Playfair Display', serif;
+
+}
+
+a { /* formatting link text */
+	color: black;
+	font-size: 40px;
+	font-family: 'Playfair Display', serif;
+	text-align: center;
+	
+} 
+
+a:hover {
+  color: gray;
+} /* source: https://www.w3schools.com/css/css_link.asp */
+
+/* GRID SYSTEM */
+/* source:  https://www.youtube.com/watch?v=jV8B24rSN5o */
+
+body {
+	background-image: url('https://monophy.com/media/zW0n7AIWG4ka4/monophy.gif');
+	margin: 300px;
+}
+
+/* EACH STAR PLACEMENT */
+
+.biggrid {
+	display: grid;
+	grid-template-rows: repeat(11, 1fr);
+	grid-column-gap: 3em;
+	grid-row-gap: 5em;
+
+}
+
+.biggrid > div {
+	background: #ddd;
+	padding: 3em;
+
+}
+
+/* GROUPING FOR EACH PLACEMENT */
+.grid {
+	display: grid;
+	grid-template-rows: 10% 90%;
+	background: #ddd;
+	
+}
+
+/* EACH ASTROLOGICAL SIGN FOR EACH PLACEMENT */ 
+.nested {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-auto-rows: 50px;
+	grid-gap: 1em;
+	grid-auto-rows: minmax(auto, auto);
+}
+
+.nested > div {
+	border: #333 1px solid;
+}
+
+img { 
+	/* makes the image fit the size of the div */
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+/* TEXT HOVER OVERLAY */
+/* source:  https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_image_overlay_fade */
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: rgba(0,0,0,0.8);
+}
+
+.container:hover .overlay {
+  opacity: 1;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  line-height: .5rem; /* changes space between lines */
+}
+
+/* POP UP */
+/* source:  https://codepen.io/deepakrawat/pen/bWBJNO */
+h3 { 
+	color: black;
+	font-size: 30px;
+	font-family: 'Playfair Display', serif, bold;
+ }
+
+.overlay_flight_traveldil { /* background */
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.overlay_flight_traveldil:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup_flight_travlDil {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 2s ease-in-out;
+}
+
+.popup_flight_travlDil .close_flight_travelDl { /* X out button */
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+  margin-top: -00px;
+}
+
+.popup_flight_travlDil .content_flightht_travel_dil {
+  max-height: 30%;
+  overflow: auto;
+}
+
+.floatAboveEverything { /* puts the div on top of everything */
+	z-index: 1000; 
+}
+/* source:  https://www.codegrepper.com/code-examples/css/css+make+div+on+top+of+everything */
